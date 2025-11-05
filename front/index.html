@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Catálogo de Livros</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>📚 Catálogo de Livros</h1>
+
+    <form id="formLivro">
+        <input type="hidden" id="id" />
+        <input type="text" id="titulo" placeholder="Título" required />
+        <input type="text" id="autor" placeholder="Autor" required />
+        <input type="number" id="ano" placeholder="Ano" required />
+        <button type="submit">Salvar</button>
+        <button type="button" id="limpar">Limpar</button>
+    </form>
+
+    <table id="tabelaLivros">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

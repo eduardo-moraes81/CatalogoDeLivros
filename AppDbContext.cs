@@ -1,17 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace CatalogoDeLivros
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) :
-        base(options)
-        { }
+        public DbSet<Livro> Livros { get; set; }
 
-        public DbSet<Livro> Livros => Set<Livro>();
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Livro>().HasData(
+                new Livro { Id = 1, Titulo = "1984", Autor = "George Orwell", Ano = 1949 },
+                new Livro { Id = 2, Titulo = "O Senhor dos Anéis", Autor = "J.R.R. Tolkien", Ano = 1954 }
+            );
+        }
     }
 }
